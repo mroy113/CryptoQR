@@ -1,0 +1,6 @@
+#!/bin/bash
+#use message as input for QR generation
+cat cipher.sig | qrencode -s 10 -o qrcode.png
+
+#Read the QR code & output text file
+zbarimg --raw qrcode.png > qrcipher.sig

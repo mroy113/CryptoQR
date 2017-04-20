@@ -1,0 +1,2 @@
+gpg --gen-key --batch mikeKeyGenInfo
+gpg --gen-key --batch bankKeyGenInfo

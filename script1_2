@@ -1,9 +1,8 @@
 #!/bin/bash
-
 # encrypt message.txt using public key of Michael. Save to cipher.gpg
-gpg --output cipher.pem --encrypt --recipient 083CD42A message.txt
+gpg --output cipher.pem --encrypt --recipient 6895F461 message.txt
 
 # digitally sign cipher.gpg with private key of sender
 # -u xxxxxxx designates the private key to be used, --passphrase xxxxx is to enter the passphrase
 # -clearsign preserves the ASCII integrity of the message formatting
-gpg -u 3F2CFC75 --passphrase password --output cipher.sig --clearsign cipher.pem
+gpg -u 989BC421 --passphrase password --output cipher.sig --clearsign cipher.pem
