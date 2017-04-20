@@ -1,0 +1,8 @@
+#!/bin/bash
+echo 
+echo setting permissions for script1, script1_2, deleteOldFiles scripts...
+
+chmod 777 deleteOldFiles
+chmod 777 script1
+chmod 777 script1_2
+chmod 777 script3

@@ -1,0 +1,10 @@
+#!/bin/bash
+gpg --output cipherverified.pem --decrypt cipher.sig
+
+gpg -u 083CD42A --passphrase password --output cipherdec.txt --decrypt cipherverified.pem
+
+echo ____________________________________________________________________________________ 
+echo 
+echo Message Decrypted: Printing Message
+echo 
+more cipherdec.txt
