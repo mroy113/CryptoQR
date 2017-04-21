@@ -1,10 +1,21 @@
 #!/bin/bash
-gpg --output cipherverified.pem --decrypt cipher.sig
+echo '-----NOW USING cipher.sig AS INPUT TO GENERATE QR CODE-----'
+#library not working for the correct encoding type
+#cat cipher.txt | qrencode -o qrcode.png
 
-gpg -u 083CD42A --passphrase password --output cipherdec.txt --decrypt cipherverified.pem
+# creates a data matrix that is compatible with the encoding
+#dmtxwrite -o qrcode.png cipher.txt
 
-echo ____________________________________________________________________________________ 
-echo 
-echo Message Decrypted: Printing Message
-echo 
-more cipherdec.txt
+
+
+echo '-----NOW DISPLAYING QR CODE TO USER-----'
+zbarimg --raw -d qrcode.png
+
+
+echo '-----NOW CREATING A CIPHER TEXT FROM QR CODE-----'
+zbarimg --raw qrcode.png > qrcipher.txt
+
+
+#Alternate code demonstration for decrypting data matrix
+#dmtxread qrcode.png
+#dmtxread qrcode.png > qrcipher.txt
