@@ -1,6 +1,10 @@
 #!/bin/bash
-#use message as input for QR generation
-cat cipher.sig | qrencode -s 10 -o qrcode.png
+# encrypt message.txt using public key of Michael. Save to cipher.sig
+echo '-----NOW ENCRYPTING WITH PUBLIC KEY OF MICHAEL & SAVING TO cipher.pem-----'
+gpg --output cipher.pem --encrypt --recipient 38E45B2A message.txt
 
-#Read the QR code & output text file
-zbarimg --raw qrcode.png > qrcipher.sig
+# digitally sign cipher.gpg with private key of sender
+# -u xxxxxxx designates the private key to be used, --passphrase xxxxx is to enter the passphrase
+# -clearsign preserves the ASCII integrity of the message formatting
+echo '-----NOW DIGITALLY SIGNING cipher.pem WITH BANK PRIVATE KEY SAVING TO cipher.sig-----'
+gpg -u 9F027B2E --passphrase password --output cipher.txt --clearsign cipher.pem

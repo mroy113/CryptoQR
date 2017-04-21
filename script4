@@ -1,0 +1,13 @@
+#!/bin/bash
+echo '-----NOW VERIFYING SIGNATURE OF qrcipher.sig AS qrcipherverified.pem-----'
+gpg --output qrcipherverified.pem --decrypt qrcipher.txt
+
+
+echo '-----NOW MIKE(RECIPIENT) PRIVATE KEY DECRYPTING qrcipherverified.pem-----'
+gpg -u 3896EED0 --passphrase password --output qrcipherdec.txt --decrypt qrcipherverified.pem
+
+echo ____________________________________________________________________________________ 
+echo 
+echo 'Message Decrypted: Printing Message'
+echo 
+more 'qrcipherdec.txt'

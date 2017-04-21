@@ -1,4 +1,0 @@
-#!/bin/bash
-echo 
-echo deleting any cipher texts and thier decryptions...
-rm cipherdec.txt cipher.pem cipher.sig cipherverified.pem qrcode.png qrcipher.sig

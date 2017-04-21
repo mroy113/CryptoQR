@@ -1,3 +1,6 @@
 #!/bin/bash
+echo '-----NOW CREATING PUBLIC/PRIVATE KEY PAIRS FOR MIKE-----'
 gpg --gen-key --batch mikeKeyGenInfo
+
+echo '-----NOW CREATING PUBLIC/PRIVATE KEY PAIRS FOR BANK-----'
 gpg --gen-key --batch bankKeyGenInfo
